@@ -10,23 +10,18 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-		if(arr.length==0 || arr.length==1 ){
-				return "-Infinity";
-            }
-			var h=0,sh=0,flag=0;
-			for(let i in arr){
-				if(arr[0]==arr[i]){
-                    flag++;
-                }  
-                if(flag==arr.length){
-                    return "-Infinity";
-                }
-				if(arr[i]>h){
-					sh=h;
-					h=arr[i];
-				}
-			}
-			return sh;	
+	arr.sort(function(a, b){return a - b});
+		    let n=arr.length;
+		    function allEqual(arr) {
+		      return new Set(arr).size == 1;
+		    }
+		
+		    if(arr.length<=1 ||allEqual(arr)) {
+		      return Number.NEGATIVE_INFINITY
+		    }
+		    else {
+		    return arr[arr.length-2]
+		    }
 		}
 
 		function Main() {
